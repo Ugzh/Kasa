@@ -1,10 +1,11 @@
 import Header from "../components/Header.jsx";
-import { css } from "../../styled-system/css";
+import HeroBanner from "../components/HeroBanner.jsx";
 
 export default function Index() {
   return (
     <>
       <Header />
+      <HeroBanner />
     </>
   );
 }

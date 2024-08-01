@@ -7,7 +7,10 @@ export default function Header() {
     display: "flex",
     justifyContent: "center",
     width: "100%",
-    paddingTop: "45px",
+    py: "45px",
+    "@media (max-width: 640px)": {
+      py: "20px",
+    },
   };
   const nav = {
     display: "flex",
@@ -18,6 +21,10 @@ export default function Header() {
     gap: "57px",
     fontSize: "1.5rem",
     fontWeight: "500",
+    "@media (max-width: 640px)": {
+      fontSize: "0.75rem",
+      gap: "1.75rem",
+    },
   };
 
   const headerPositioning = {
@@ -30,17 +37,23 @@ export default function Header() {
       px: "20px",
     },
   };
+
+  const image = {
+    "@media (max-width: 640px)": {
+      width: "145px",
+    },
+  };
   return (
     <div className={css(header)}>
       <div className={css(headerPositioning)}>
-        <img src={Logo} alt="Kasa Logo" />
+        <img src={Logo} alt="Kasa Logo" className={css(image)} />
         <nav className={css(nav)}>
           <ul className={css(list)}>
             <li>
-              <Link to="/">Accueil</Link>
+              <Link to="/">ACCUEIL</Link>
             </li>
             <li>
-              <Link to="/">A propos</Link>
+              <Link to="/">A PROPOS</Link>
             </li>
           </ul>
         </nav>
