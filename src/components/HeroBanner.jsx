@@ -31,13 +31,11 @@ const titleStyles = {
   },
 };
 
-export default function HeroBanner() {
+export default function HeroBanner({ textTitle }) {
   return (
     <div className={css(globalStyles, responsiveStyle)}>
       <div className={`${css(heroBannerStyles)} heroImage`}>
-        <h1 className={`${css(titleStyles)} text-stroke`}>
-          Chez vous, partout et ailleurs
-        </h1>
+        <h1 className={`${css(titleStyles)} text-stroke`}>{textTitle}</h1>
       </div>
     </div>
   );

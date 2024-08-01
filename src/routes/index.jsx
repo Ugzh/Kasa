@@ -6,7 +6,7 @@ export default function Index() {
   return (
     <>
       <Header />
-      <HeroBanner />
+      <HeroBanner textTitle={"Chez vous, partout et ailleurs"} />
       <Footer />
     </>
   );
