@@ -13,6 +13,7 @@ const heroBannerStyles = {
     height: "110px",
     justifyContent: "start",
     px: "4",
+    rounded: "xl",
   },
 };
 
