@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import { css } from "../styled-system/css";
 import { responsiveStyle } from "./lib/sharedStyles.js";
+import Footer from "./components/Footer.jsx";
 
 export default function ErrorPage() {
   const layoutStyle = {
@@ -57,6 +58,7 @@ export default function ErrorPage() {
           {"Retourner sur la page d'accueil"}
         </Link>
       </div>
+      <Footer />
     </>
   );
 }
