@@ -41,14 +41,16 @@ export default function Header() {
   return (
     <div className={css(headerStyles, globalStyles)}>
       <div className={css(headerPositioningStyles, responsiveStyle)}>
-        <img src={Logo} alt="Kasa Logo" className={css(imageStyles)} />
+        <Link to="/">
+          <img src={Logo} alt="Kasa Logo" className={css(imageStyles)} />
+        </Link>
         <nav className={css(navStyles)}>
           <ul className={css(listStyles)}>
             <li>
               <Link to="/">ACCUEIL</Link>
             </li>
             <li>
-              <Link to="/">A PROPOS</Link>
+              <Link to="/a-propos">A PROPOS</Link>
             </li>
           </ul>
         </nav>
