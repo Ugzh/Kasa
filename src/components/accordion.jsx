@@ -7,6 +7,7 @@ export default function Accordion({ title, description }) {
   function accordionToggle() {
     setIsActive(!isActive);
   }
+
   const layoutStyle = {
     display: "flex",
     bgColor: "#FF6060",
@@ -14,15 +15,32 @@ export default function Accordion({ title, description }) {
     fontWeight: "bold",
     fontSize: "1.5rem",
     justifyContent: "space-between",
+    alignItems: "center",
     rounded: "md",
     px: 3,
     py: 2,
+    "@media (max-width:640px)": {
+      fontSize: "0.8rem",
+    },
   };
 
   const descriptionStyle = {
     bgColor: "#F6F6F6",
     px: 5,
     py: 3,
+    "@media (max-width:640px)": {
+      fontSize: "0.65rem",
+    },
+  };
+
+  const chevronStyle = {
+    width: "32px",
+    height: "32px",
+    cursor: "pointer",
+    "@media (max-width:640px)": {
+      width: "16px",
+      height: "16px",
+    },
   };
 
   return (
@@ -32,12 +50,10 @@ export default function Accordion({ title, description }) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
-          width="32px"
-          height="32px"
           className={
             !isActive
-              ? `${css({ cursor: "pointer" })} closeChevron`
-              : `${css({ cursor: "pointer" })} openChevron`
+              ? `${css(chevronStyle)} closeChevron`
+              : `${css(chevronStyle)} openChevron`
           }
           onClick={accordionToggle}
         >
