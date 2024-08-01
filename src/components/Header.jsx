@@ -25,6 +25,10 @@ export default function Header() {
     maxWidth: "1440px",
     width: "100%",
     justifyContent: "space-between",
+    px: "45px",
+    "@media (max-width: 768px)": {
+      px: "20px",
+    },
   };
   return (
     <div className={css(header)}>
