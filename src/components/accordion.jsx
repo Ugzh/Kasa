@@ -21,8 +21,8 @@ export default function Accordion({ title, description }) {
 
   const descriptionStyle = {
     bgColor: "#F6F6F6",
-    px: 3,
-    py: 2,
+    px: 5,
+    py: 3,
   };
 
   return (
@@ -48,7 +48,9 @@ export default function Accordion({ title, description }) {
         </svg>
       </div>
       {isActive ? (
-        <p className={css(descriptionStyle)}>{description}</p>
+        <div className={`${css(descriptionStyle)} `}>
+          <p className={` descriptionAnimation`}>{description}</p>
+        </div>
       ) : undefined}
     </div>
   );
