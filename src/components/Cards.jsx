@@ -1,7 +1,7 @@
 import { css } from "../../styled-system/css";
 import { Link } from "react-router-dom";
 
-const response = await fetch("src/data.json");
+const response = await fetch("/src/data.json");
 const fetchingData = await response.json();
 console.log(fetchingData);
 
