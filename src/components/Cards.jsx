@@ -54,7 +54,7 @@ export default function Cards() {
               },
             })} `}
           >
-            <Link to={`/${id}`}>
+            <Link to={`/location/${id}`}>
               <div className={css(cardGradientStyle)}></div>
               <img src={cover} alt={title} className={`${css(layoutStyle)} `} />
               <p className={css(titleStyle)}>{title}</p>
