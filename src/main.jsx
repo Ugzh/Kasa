@@ -18,6 +18,11 @@ const router = createBrowserRouter([
     element: <About />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/:id",
+    element: <div>id</div>,
+    errorElement: <ErrorPage />,
+  },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
