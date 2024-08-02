@@ -10,6 +10,7 @@ export default function Index() {
         textTitle={"Chez vous, partout et ailleurs"}
         theme={"Forest"}
       />
+
       <Footer />
     </>
   );

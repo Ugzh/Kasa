@@ -8,7 +8,7 @@ export default function Footer() {
     position: "fixed",
     bottom: "0",
     width: "100%",
-    height: "209px",
+    height: "15%",
   };
 
   const contentStyle = {
@@ -25,6 +25,11 @@ export default function Footer() {
   const copyrightStyle = {
     color: "white",
     fontSize: "1.5rem",
+    "@media (max-width:640px)": {
+      fontSize: "0.75rem",
+      width: "70%",
+      textAlign: "center",
+    },
   };
   return (
     <div className={css(footerStyle)}>

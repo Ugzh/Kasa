@@ -1,7 +1,7 @@
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import HeroBanner from "../components/HeroBanner.jsx";
-import Accordion from "../components/accordion.jsx";
+import Accordion from "../components/Accordion.jsx";
 import { css } from "../../styled-system/css";
 
 export default function About() {

@@ -35,7 +35,7 @@ export default function HeroBanner({ textTitle, theme }) {
   return (
     <div className={css(globalStyles, responsiveStyle)}>
       <div className={`${css(heroBannerStyles)} hero${theme}`}>
-        <h1 className={`${css(titleStyles)} text-stroke`}>{textTitle}</h1>
+        <h1 className={`${css(titleStyles)} `}>{textTitle}</h1>
       </div>
     </div>
   );
