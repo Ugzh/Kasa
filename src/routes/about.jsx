@@ -3,7 +3,6 @@ import Footer from "../components/Footer.jsx";
 import HeroBanner from "../components/HeroBanner.jsx";
 import Accordion from "../components/accordion.jsx";
 import { css } from "../../styled-system/css";
-import { responsiveStyle } from "../lib/sharedStyles.js";
 
 export default function About() {
   const accordion = {
@@ -23,12 +22,15 @@ export default function About() {
     width: "100%",
     display: "flex",
     justifyContent: "center",
+    "@media (max-width:1240px)": {
+      px: "20px",
+    },
   };
   return (
     <>
       <Header />
       <HeroBanner theme={"Mountain"} />
-      <div className={css(accordionLayout, responsiveStyle)}>
+      <div className={css(accordionLayout)}>
         <div className={css(accordion)}>
           <Accordion
             title={"Fiabilité"}

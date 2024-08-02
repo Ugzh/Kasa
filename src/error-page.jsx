@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import { css } from "../styled-system/css";
-import { responsiveStyle } from "./lib/sharedStyles.js";
 import Footer from "./components/Footer.jsx";
 
 export default function ErrorPage() {
@@ -14,6 +13,9 @@ export default function ErrorPage() {
     gap: "139px",
     "@media (max-width:640px)": {
       gap: "113px",
+    },
+    "@media (max-width:1240px)": {
+      px: "20px",
     },
   };
 
@@ -49,7 +51,7 @@ export default function ErrorPage() {
   return (
     <>
       <Header />
-      <div className={css(layoutStyle, responsiveStyle)}>
+      <div className={css(layoutStyle)}>
         <h1 className={css(titleStyle)}>404</h1>
         <p className={css(subTitleStyle)}>
           {"Oups! La page que vous demandez n'existe pas."}

@@ -40,7 +40,7 @@ const imageStyles = {
 export default function Header() {
   return (
     <div className={css(headerStyles, globalStyles)}>
-      <div className={css(headerPositioningStyles, responsiveStyle)}>
+      <div className={css(responsiveStyle, headerPositioningStyles)}>
         <Link to="/">
           <img src={Logo} alt="Kasa Logo" className={css(imageStyles)} />
         </Link>
