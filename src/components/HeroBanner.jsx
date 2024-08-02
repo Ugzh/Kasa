@@ -9,6 +9,7 @@ const heroBannerStyles = {
   alignItems: "center",
   width: "100%",
   rounded: "4xl",
+  dropShadow: "0px 4px 4px #00000040",
   "@media (max-width: 640px)": {
     height: "110px",
     justifyContent: "start",

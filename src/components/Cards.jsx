@@ -34,7 +34,7 @@ export default function Cards() {
     rounded: "xl",
     bgGradient: "to-t",
     gradientFrom: "black",
-    gradientTo: "red.200",
+    gradientTo: "red.100",
   };
   return (
     <>
@@ -48,6 +48,10 @@ export default function Cards() {
               w: "340px",
               h: "340px",
               zIndex: 1,
+              "@media (max-width: 760px)": {
+                width: "100%",
+                h: "255px",
+              },
             })} `}
           >
             <Link to={"/"}>
