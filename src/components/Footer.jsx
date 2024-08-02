@@ -5,10 +5,10 @@ export default function Footer() {
     bgColor: "black",
     display: "flex",
     justifyContent: "center",
-    position: "fixed",
+    position: "absolute",
     bottom: "0",
     width: "100%",
-    height: "15%",
+    height: "209",
   };
 
   const contentStyle = {

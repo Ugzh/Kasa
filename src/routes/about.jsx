@@ -27,7 +27,7 @@ export default function About() {
     },
   };
   return (
-    <>
+    <div className={css({ position: "relative", minH: "100vh" })}>
       <Header />
       <HeroBanner theme={"Mountain"} />
       <div className={css(accordionLayout)}>
@@ -60,6 +60,6 @@ export default function About() {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
