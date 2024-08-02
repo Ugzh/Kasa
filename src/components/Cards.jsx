@@ -1,9 +1,10 @@
 import { css } from "../../styled-system/css";
 import { Link } from "react-router-dom";
+import fetchingData from "/src/data.json";
 
-const response = await fetch("/src/data.json");
-const fetchingData = await response.json();
-console.log(fetchingData);
+// A mettre en place lorsque l'API sera fonctionnelle
+// const response = await fetch("lien vers l'API");
+// const fetchingData = await response.json();
 
 export default function Cards() {
   if (!fetchingData) return window.alert("Pas de données");
@@ -26,7 +27,6 @@ export default function Cards() {
   };
 
   const cardGradientStyle = {
-    // bgColor: "black",
     position: "absolute",
     width: "100%",
     height: "100%",
