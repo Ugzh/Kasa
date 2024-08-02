@@ -4,6 +4,7 @@ import fetchingData from "/src/data.json";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import { css } from "../../styled-system/css";
+import Accordion from "../components/Accordion.jsx";
 
 const validId = [];
 
@@ -14,6 +15,19 @@ for (let i = 0; i < fetchingData.length; i++) {
 export default function Location() {
   const { id } = useParams();
   const [carrousselImage, setCarrousselImage] = React.useState([]);
+
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const nextSlide = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === carrousselImage.length - 1 ? 0 : prevIndex + 1,
+    );
+  };
+  const previousSlide = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? carrousselImage.length - 1 : prevIndex - 1,
+    );
+  };
+
   React.useEffect(() => {
     if (!validId.includes(id)) {
       return <Navigate to={"/404"} />;
@@ -28,6 +42,7 @@ export default function Location() {
   const indexID = validId.indexOf(id);
   let stars = [];
   let emptyStar = [];
+
   for (let i = 0; i < fetchingData[indexID].rating; i++) {
     stars.push(
       <svg
@@ -103,6 +118,22 @@ export default function Location() {
     px: 6,
     rounded: "lg",
   };
+
+  const chevronLeftStyle = {
+    position: "absolute",
+    top: "160px",
+    left: "40px",
+    w: "46px",
+    cursor: "pointer",
+  };
+
+  const chevronRightStyle = {
+    position: "absolute",
+    top: "160px",
+    right: "40px",
+    w: "46px",
+    cursor: "pointer",
+  };
   return (
     <div className={css({ position: "relative", minHeight: "100vh" })}>
       <Header />
@@ -114,11 +145,33 @@ export default function Location() {
         })}
       >
         <div className={css(carrousselStyle)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+            className={css(chevronLeftStyle)}
+            onClick={previousSlide}
+          >
+            <path
+              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+              fill={"white"}
+            />
+          </svg>
           <img
-            src={carrousselImage[0]}
+            src={carrousselImage[activeIndex]}
             alt="Photo de la location"
             className={css(imageStyle)}
           />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+            className={css(chevronRightStyle)}
+            onClick={nextSlide}
+          >
+            <path
+              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+              fill={"white"}
+            />
+          </svg>
           <div
             className={css({
               display: "flex",
@@ -192,6 +245,28 @@ export default function Location() {
                 {emptyStar}
               </div>
             </div>
+          </div>
+          <div
+            className={css({ display: "flex", width: "100%", gap: 10, py: 10 })}
+          >
+            <Accordion
+              title={"Description"}
+              titleSize={"1.125rem"}
+              description={<p>{fetchingData[indexID].description}</p>}
+            />
+            <Accordion
+              title={"Équipement"}
+              titleSize={"1.125rem"}
+              description={fetchingData[indexID].equipments.map(
+                (equipement, i) => {
+                  return (
+                    <ol key={i}>
+                      <li>{equipement}</li>
+                    </ol>
+                  );
+                },
+              )}
+            />
           </div>
         </div>
       </div>
