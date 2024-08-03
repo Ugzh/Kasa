@@ -1,6 +1,7 @@
 import Logo from "/src/assets/Kasa_logo.svg";
 import { Link } from "react-router-dom";
 import { css } from "../../styled-system/css";
+import { NavLink } from "react-router-dom";
 
 import { globalStyles, responsiveStyle } from "../lib/sharedStyles.js";
 
@@ -47,10 +48,32 @@ export default function Header() {
         <nav className={css(navStyles)}>
           <ul className={css(listStyles)}>
             <li>
-              <Link to="/">ACCUEIL</Link>
+              <NavLink
+                to="/"
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? css({ textDecoration: "underline" })
+                    : isPending
+                      ? css({ textDecoration: "underline" })
+                      : ""
+                }
+              >
+                ACCUEIL
+              </NavLink>
             </li>
             <li>
-              <Link to="/a-propos">A PROPOS</Link>
+              <NavLink
+                to="/a-propos"
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? css({ textDecoration: "underline" })
+                    : isPending
+                      ? css({ textDecoration: "underline" })
+                      : ""
+                }
+              >
+                A PROPOS
+              </NavLink>
             </li>
           </ul>
         </nav>

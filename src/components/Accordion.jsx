@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "../../styled-system/css";
 
-export default function Accordion({ title, description, titleSize }) {
+export default function Accordion({ title, description, className }) {
   const [isActive, setIsActive] = React.useState(false);
 
   function accordionToggle() {
@@ -46,7 +46,7 @@ export default function Accordion({ title, description, titleSize }) {
   return (
     <div className={css({ width: "100%" })}>
       <div className={css(layoutStyle)}>
-        <h2 className={`${css({ fontSize: titleSize })}`}>{title}</h2>
+        <h2 className={` ${className}`}>{title}</h2>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
