@@ -16,7 +16,12 @@ export default function Location() {
   const { id } = useParams();
   const [carrousselImage, setCarrousselImage] = React.useState([]);
 
+  const indexID = validId.indexOf(id);
+  let stars = [];
+  let emptyStar = [];
+
   const [activeIndex, setActiveIndex] = React.useState(0);
+  console.log(activeIndex + 1);
   const nextSlide = () => {
     setActiveIndex((prevIndex) =>
       prevIndex === carrousselImage.length - 1 ? 0 : prevIndex + 1,
@@ -38,10 +43,6 @@ export default function Location() {
       setCarrousselImage(fetchingData[indexID].pictures);
     }
   }, [setCarrousselImage, fetchingData]);
-
-  const indexID = validId.indexOf(id);
-  let stars = [];
-  let emptyStar = [];
 
   for (let i = 0; i < fetchingData[indexID].rating; i++) {
     stars.push(
@@ -190,33 +191,49 @@ export default function Location() {
         })}
       >
         <div className={css(carrousselStyle)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 512"
-            className={css(chevronLeftStyle)}
-            onClick={previousSlide}
-          >
-            <path
-              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
-              fill={"white"}
-            />
-          </svg>
+          {carrousselImage.length > 1 && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+              className={css(chevronLeftStyle)}
+              onClick={previousSlide}
+            >
+              <path
+                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+                fill={"white"}
+              />
+            </svg>
+          )}
           <img
             src={carrousselImage[activeIndex]}
             alt="Photo de la location"
             className={css(imageStyle)}
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 512"
-            className={css(chevronRightStyle)}
-            onClick={nextSlide}
-          >
-            <path
-              d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-              fill={"white"}
-            />
-          </svg>
+          <span
+            className={css({
+              position: "absolute",
+              left: "50%",
+              top: "55%",
+              color: "white",
+              fontWeight: "medium",
+              "@media (max-width:640px)": {
+                display: "none",
+              },
+            })}
+          >{`${activeIndex + 1}/${carrousselImage.length}`}</span>
+          {carrousselImage.length > 1 && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+              className={css(chevronRightStyle)}
+              onClick={nextSlide}
+            >
+              <path
+                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                fill={"white"}
+              />
+            </svg>
+          )}
           <div
             className={css({
               display: "flex",
