@@ -6,7 +6,7 @@ import { css } from "../../styled-system/css";
 
 export default function Index() {
   return (
-    <div className={css({ position: "relative", minH: "100vh" })}>
+    <div className={css({ minH: "100vh" })}>
       <Header />
       <HeroBanner
         textTitle={"Chez vous, partout et ailleurs"}
@@ -14,7 +14,7 @@ export default function Index() {
       />
       <div
         className={css({
-          pb: "280px",
+          pb: "50px",
           pt: "50px",
           display: "flex",
           justifyContent: "center",

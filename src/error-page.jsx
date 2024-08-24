@@ -7,8 +7,6 @@ export default function ErrorPage() {
   const layoutStyle = {
     display: "flex",
     flexDirection: "column",
-    height: "100%",
-    alignItems: "space-between",
     textAlign: "center",
     gap: "139px",
     "@media (max-width:640px)": {
@@ -49,18 +47,32 @@ export default function ErrorPage() {
     },
   };
   return (
-    <>
+    <div
+      className={css({
+        minH: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      })}
+    >
       <Header />
-      <div className={css(layoutStyle)}>
-        <h1 className={css(titleStyle)}>404</h1>
-        <p className={css(subTitleStyle)}>
-          {"Oups! La page que vous demandez n'existe pas."}
-        </p>
-        <Link to="/" className={css(navLink)}>
-          {"Retourner sur la page d'accueil"}
-        </Link>
+      <div
+        className={css({
+          display: "flex",
+          flexDir: "column",
+          flex: 1,
+        })}
+      >
+        <div className={css(layoutStyle)}>
+          <h1 className={css(titleStyle)}>404</h1>
+          <p className={css(subTitleStyle)}>
+            {"Oups! La page que vous demandez n'existe pas."}
+          </p>
+          <Link to="/" className={css(navLink)}>
+            {"Retourner sur la page d'accueil"}
+          </Link>
+        </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
