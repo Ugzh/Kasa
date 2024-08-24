@@ -34,7 +34,7 @@ export default function Cards() {
     rounded: "xl",
     bgGradient: "to-t",
     gradientFrom: "black",
-    gradientTo: "red.100",
+    gradientTo: "#FFFFFF/0",
   };
   return (
     <>
