@@ -10,6 +10,7 @@ export default function About() {
     flexDir: "column",
     gap: "30px",
     pt: "30px",
+    py: "30px",
     justifyContent: "center",
     maxWidth: "1000px",
     width: "100%",
