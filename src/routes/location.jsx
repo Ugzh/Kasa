@@ -30,6 +30,7 @@ export default function Location() {
     maxWidth: "1240px",
     width: "100%",
     flexDirection: "column",
+
     px: "20px",
   };
 
@@ -76,7 +77,8 @@ export default function Location() {
   return (
     <div
       className={css({
-        position: "relative",
+        display: "flex",
+        flexDir: "column",
         minHeight: "100vh",
         "@media (max-width:640px)": {
           pb: "200px",
@@ -89,6 +91,7 @@ export default function Location() {
           width: "100%",
           display: "flex",
           justifyContent: "center",
+          flex: 1,
         })}
       >
         <div className={css(carrousselStyle)}>
