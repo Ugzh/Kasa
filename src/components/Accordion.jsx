@@ -65,7 +65,19 @@ export default function Accordion({ title, description, className }) {
       </div>
       {isActive ? (
         <div className={`${css(descriptionStyle)} `}>
-          <div className={` descriptionAnimation`}>{description}</div>
+          <div className={` descriptionAnimation`}>
+            {typeof description === "object" ? (
+              description.map((equipement, i) => {
+                return (
+                  <ol key={i}>
+                    <li>{equipement}</li>
+                  </ol>
+                );
+              })
+            ) : (
+              <p>{description}</p>
+            )}
+          </div>
         </div>
       ) : undefined}
     </div>

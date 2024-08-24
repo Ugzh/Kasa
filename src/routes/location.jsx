@@ -192,7 +192,7 @@ export default function Location() {
                   fontSize: "0.8125rem",
                 },
               })}
-              description={<p>{fetchingData[indexID].description}</p>}
+              description={fetchingData[indexID].description}
             />
             <Accordion
               title={"Équipement"}
@@ -202,15 +202,7 @@ export default function Location() {
                   fontSize: "0.8125rem",
                 },
               })}
-              description={fetchingData[indexID].equipments.map(
-                (equipement, i) => {
-                  return (
-                    <ol key={i}>
-                      <li>{equipement}</li>
-                    </ol>
-                  );
-                },
-              )}
+              description={fetchingData[indexID].equipments}
             />
           </div>
         </div>
