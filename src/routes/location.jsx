@@ -7,6 +7,7 @@ import { css } from "../../styled-system/css";
 import Accordion from "../components/Accordion.jsx";
 import Gallery from "../components/Gallery.jsx";
 import Rating from "../components/Rating.jsx";
+import Tag from "../components/Tag.jsx";
 
 export default function Location() {
   const { id } = useParams();
@@ -56,21 +57,6 @@ export default function Location() {
     gap: 3,
     "@media (max-width:640px)": {
       gap: 1,
-    },
-  };
-
-  const tagLabelStyle = {
-    color: "white",
-    fontSize: "0.875rem",
-    fontWeight: "bold",
-    bgColor: "#FF6060",
-    py: 0.5,
-    px: 6,
-    rounded: "lg",
-    "@media (max-width:640px)": {
-      textAlign: "center",
-      fontSize: "0.625rem",
-      px: 4,
     },
   };
 
@@ -124,11 +110,7 @@ export default function Location() {
               <div className={css(tagStyle)}>
                 {fetchingData[indexID].tags.length > 1
                   ? fetchingData[indexID].tags.map((tag) => {
-                      return (
-                        <p key={Math.random()} className={css(tagLabelStyle)}>
-                          {tag}
-                        </p>
-                      );
+                      return <Tag label={tag} key={Math.random()} />;
                     })
                   : ""}
               </div>
