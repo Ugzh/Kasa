@@ -32,8 +32,6 @@ export default function Gallery() {
     }
   }, [setCarrousselImage, fetchingData, indexID]);
 
-  console.log(carrousselImage.length);
-
   const imageStyle = {
     h: "415px",
     w: "100%",
